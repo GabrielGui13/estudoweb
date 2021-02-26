@@ -10,8 +10,8 @@ const produto = {
 }
 
 console.log(getPreco()) //NaN, this no global nao esta definido
-global.preco = 20
-global.desc = 0.1
+preco = 20
+desc = 0.1
 console.log(getPreco()) //apos definir da certo
 console.log(produto.getPreco()) //fez o calculo certo (primeira forma de executar)
 
