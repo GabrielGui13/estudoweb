@@ -4,9 +4,9 @@ function juroSimples (capital, taxaJuros, tempo) {
 }
 
 function juroComposto (capital, taxaJuros, tempo) {
-    let juros = capital * (Math.pow(1 + taxaJuros, tempo) - 1)
-    return capital + juros
+    let juros = (1 + taxaJuros) ** tempo
+    return (capital * juros).toFixed(2)
 }
 
-console.log(juroSimples(1000, 0.006, 3))
-console.log(juroComposto(1000, 0.006, 3))
+console.log(juroSimples(100, 10/100, 2))
+console.log(juroComposto(100, 10/100, 2))

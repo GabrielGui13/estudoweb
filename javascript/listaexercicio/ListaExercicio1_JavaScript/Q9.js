@@ -20,4 +20,4 @@ function mostrarResultado (nota) {
     } //arredonda as notas para o proximo multiplo de 5
 }
 
-console.log(mostrarResultado(90))
+console.log(mostrarResultado(35))
