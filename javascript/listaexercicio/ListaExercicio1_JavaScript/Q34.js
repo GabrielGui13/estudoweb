@@ -14,7 +14,7 @@ function verificacaoDeString (string1, string2) {
                 estaContido = false
             }
         }
-        
+
         if(!estaContido) {
             return estaContido
         }
@@ -22,4 +22,4 @@ function verificacaoDeString (string1, string2) {
     return estaContido
 }
 
- console.log(verificacaoDeString('abc','cba'))
+ console.log(verificacaoDeString('abc','cab'))
