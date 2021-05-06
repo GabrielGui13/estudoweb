@@ -8,7 +8,7 @@ console.log('fora =', numero) //sempre retorna 2, pois esta no mesmo escopo (glo
 
 var sim = 'y' //var teste criada fora da funcion
 function check() {
-    var sim = 'x' // var criada dentro da funcion
+     var sim = 'x' // var criada dentro da funcion
     console.log('dentro =', sim)
 }
 
