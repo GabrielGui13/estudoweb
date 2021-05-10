@@ -1,0 +1,13 @@
+const alunos = [
+    { nome : 'João', nota: 7.3, bolsista: false },
+    { nome : 'Maria', nota: 9.2, bolsista: true },
+    { nome : 'Pedro', nota: 9.8, bolsista: false },
+    { nome : 'Ana', nota: 8.7, bolsista: true },
+]
+
+console.log(alunos.map(a => a.nota))
+const resultado = alunos.map(a => a.nota).reduce(function(acumulador, atual) { //primeiro parametro recebe os valores do return, o atual é o this[x]
+    console.log(acumulador, atual)
+    return acumulador + atual
+}, 10) //terceiro parametro, é o valor inicial
+console.log(resultado) //35
