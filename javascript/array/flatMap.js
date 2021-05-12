@@ -1,0 +1,4 @@
+const escola = [{
+    nome: 'Escola',
+
+}]
