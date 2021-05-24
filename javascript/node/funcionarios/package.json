@@ -12,5 +12,8 @@
     "asdfgasdf"
   ],
   "author": "Gabriel",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }
