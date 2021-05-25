@@ -12,5 +12,17 @@ const passo2 = (ctx, next) => {
 
 const passo3 = (ctx, next) => ctx.valor3 = 'mid3'
 
+const exec = (ctx, ...middlewares) => {
+    const execPasso = function(indice) {
+        if (middlewares && indice < middlewares.length) middlewares[indice](ctx, () => execPasso(indice + 1))
+    }
+    const execPasso2 = indice => {
+        middlewares && indice < middlewares.length && middlewares[indice](ctx, () => execPasso(indice + 1)) //mesma coisa do codigo acima
+    }
+    execPasso(0)
+}
 
+const ctx = {}
+exec(ctx, passo1, passo2, passo3)
+console.log(ctx)
 
