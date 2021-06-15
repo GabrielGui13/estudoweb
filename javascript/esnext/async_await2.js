@@ -32,3 +32,4 @@ async function gerarMegaSena (qtd, tentativa = 1) {
 gerarMegaSena(15) //trata como uma promise, return eh o resolve, excecao eh o reject
     .then(console.log)
     .catch(console.log)
+    
