@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        const img = document.querySelector('img')
+        console.log('getAttribute', img.getAttribute('src')) //buscar o atributo src
+        console.log('src', img.src) //outra maneira
+        console.log('["src"]', img['src']) //acessando pelo atributo 
+        console.log('alt', img.alt)
+
+        console.log('Elemento "img"............')
+        console.log('NodeType', img.nodeType) //retorna 1, que eh element, cada numero tem um
+        console.log('NodeName', img.nodeName) //img
+        
+        const src = img.getAttributeNode('src') //pegou o no do atributo src
+        console.log('Atributo "src"............')
+        console.log('NodeType', src.nodeType) //retorna o 2, que eh attr
+        console.log('NodeName', img.nodeName) //src
+        console.log('NodeValue', src.nodeValue) //retorna o link
+
+        const link = document.querySelector('a')
+        console.log('Elemento "a"............') //seleciona o a
+        console.log('href', link.href) //retorna o href
+        console.log('firstChild.nodeType', link.firstChild.nodeType) //pega o nodeType do filho, 3 que eh text
+        link.innerHTML = 'Novo Texto 2' ///forma mais comum
+        link.firstChild.nodeValue = 'Novo texto' //troca o valor
+    </script>
+</body>
+
+</html>

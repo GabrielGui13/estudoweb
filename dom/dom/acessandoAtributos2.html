@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]') //seletor especifico, seleciona uma ul com atributo destino = escritorio dentro de uma div
+        console.log('Elemento "ul"............')
+        console.log('childNodes', lista.childNodes) //padrao
+        console.log('destino', lista.destino) //undefined pois eh um atributo customizado
+        console.log('getAttribute', lista.getAttribute('destino')) //retorna o valor escritorio
+        console.log('hasAttribute', lista.hasAttribute('destino')) //retorna true se tem o atributo
+        lista.setAttribute('destino', 'empresa') //troca o valor do atributo se existir
+        lista.setAttribute('status', 'aberto') //cria um atributo status com o valor aberto
+        lista.removeAttribute('destino')//remove o parametro destino
+
+        console.log(lista.dataset) //atributos que comecam com "data-", e retorna sem o prefixo {urgencia: 5}
+        console.log(lista.dataset.urgencia) //retorna o valor (5)
+        lista.dataset.urgencia = 4 //altera o valor
+        console.log(lista.getAttribute('data-urgencia')) //utiliza o data- apenas aqui, retorna 4
+
+        //cuidado
+        const label = document.querySelector('label')
+        //console.log(label.for) => da errado pois eh palavrva reservada
+        console.log(label.htmlFor) //retorna normal, htmlFor na notacao pronto
+        console.log(label.getAttribute('for')) //retorna normal com o nome padrao
+
+    </script>
+</body>
+
+</html>

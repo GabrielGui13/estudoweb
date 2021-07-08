@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body') //acessa o body
+
+        const div1 = document.createElement('div') //cria uma div
+        div1.classList.add('destaque')
+        div1.innerHTML = 'Primeiro'
+
+        const div2 = document.createElement('div') //cria outra div
+        div2.setAttribute('wm-atributo', 'valor') //cria um atributo val
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('p') //cria um p
+        p.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')
+        div3.appendChild(p) //eh adicionado como o ultimo elemento do parent pai (div1)
+
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3) //adiciona no html
+
+        const texto = document.createTextNode('Antes...') //cria um texto
+        div3.insertBefore(texto, div3.childNodes[0]) //passa o valor e depois o canto especifico para adicionar
+
+        const div4 = div3.cloneNode(true) //true clona tudo inclusive os filhos, false nao
+        body.appendChild(div4) //adiciona a div4 que eh o clone da div 3
+        body.removeChild(div3) //remove a div3
+    </script>
+</body>
+
+</html>

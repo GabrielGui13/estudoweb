@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log //simplificar o console.logo
+
+        const lista = document.querySelector('div ul') //seleciona a lista ul
+        lista.parentNode.log() //seleciona o elemento pai (div) da ul
+        lista.childNodes.log() //seleciona li text li text devido os espacos em branco, deveria tirar
+
+        const primeiro = lista.firstChild
+        primeiro.log() //um texto pois tem os espacos em branco
+        primeiro.nextSibling.log() //imprime o proximo elemento (li)
+
+        const ultimo = lista.lastChild
+        ultimo.log() //tambem um texto devido os espacos em branco
+        ultimo.previousSibling.log() //imprime o elemento anterior (li)
+
+        lista.children.log() //vem sem os text em HTMLCollection
+        lista.firstElementChild.log() //traz o primeiro elemento mesmo da lista, sem o text
+        lista.lastElementChild.log() //traz o ultimo elemento mesmo da lista, sem o text
+        lista.parentNode.previousElementSibling.log() //elemento irmao anterior ao parent(pai) da lista
+        lista.parentNode.nextElementSibling.log() //elemento irmao depois do parent(pai) da lista
+
+        document.querySelectorAll('div ul li').log() //retorna logo todos os li da lista
+    </script>
+</body>
+
+</html>
