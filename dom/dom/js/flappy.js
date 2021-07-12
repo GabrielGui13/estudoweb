@@ -46,69 +46,69 @@ function ParDeBarreiras(altura, abertura, x) { //a altura eh a altura do jogo
 // const b = new ParDeBarreiras(700, 200, 800)
 // document.querySelector('[wm-flappy]').appendChild(b.elemento)
 
-function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
+function Barreiras(altura, largura, abertura, espaco, notificarPonto) { //altura do jogo, largura do jogo, abertura entre as barreiras (vertical), espaco entre as barreiras (horizontal), e funcao para da ponto
     this.pares = [
-        new ParDeBarreiras(altura, abertura, largura),
+        new ParDeBarreiras(altura, abertura, largura), //comeca exatamente depois da largura do jogo (largura == x)
         new ParDeBarreiras(altura, abertura, largura + espaco),
         new ParDeBarreiras(altura, abertura, largura + espaco * 2),
-        new ParDeBarreiras(altura, abertura, largura + espaco * 3)
+        new ParDeBarreiras(altura, abertura, largura + espaco * 3) //cria cada barreira com espacos diferentes uma da outra
     ]
 
-    const deslocamento = 3
+    const deslocamento = 3 //de quantos em quantos px eh animado
     this.animar = () => {
-        this.pares.forEach(par => {
-            par.setX(par.getX() - deslocamento)
+        this.pares.forEach(par => { //para cada par
+            par.setX(par.getX() - deslocamento) //utiliza o x atual, e vai diminuindo o deslocamento
 
             // quando o elemento sair da área do jogo
-            if (par.getX() < -par.getLargura()) {
-                par.setX(par.getX() + espaco * this.pares.length)
-                par.sortearAbertura()
+            if (par.getX() < -par.getLargura()) { //x eh 0 na quina do jogo, se ele menor que a largura da barreira
+                par.setX(par.getX() + espaco * this.pares.length) //ele muda o espaco do jogo, e coloca antes de aparecer do lado direito
+                par.sortearAbertura() //sorteia sua abertura novamente, para ser uma barreira diferente
             }
 
-            const meio = largura / 2
-            const cruzouOMeio = par.getX() + deslocamento >= meio
-                && par.getX() < meio
+            const meio = largura / 2 //meio eh a metade da largura do jogo
+            const cruzouOMeio = par.getX() + deslocamento >= meio //se o x da barreira mais o deslocamento for maior ou igual o meio do jogo
+                && par.getX() < meio // e o x sem o deslocamento for menor que o meio, significa que cruzou o meio
             if(cruzouOMeio) notificarPonto()
         })
     }
 }
 
-function Passaro(alturaJogo) {
-    let voando = false
+function Passaro(alturaJogo) { //altura do jogo para nao voar infinitamente
+    let voando = false //pra iniciar o jogo, quando pressionar tecla voa ou cai
 
-    this.elemento = novoElemento('img', 'passaro')
-    this.elemento.src = 'imgs/passaro.png'
+    this.elemento = novoElemento('img', 'passaro') //elemento tipo image com classe passaro
+    this.elemento.src = 'imgs/passaro.png' //adiciona atributo ao elemento
 
-    this.getY = () => parseInt(this.elemento.style.bottom.split('px')[0])
-    this.setY = y => this.elemento.style.bottom = `${y}px`
+    this.getY = () => parseInt(this.elemento.style.bottom.split('px')[0]) //posicao que o passaro ta voando
+    this.setY = y => this.elemento.style.bottom = `${y}px` //mudar a posicao do passaro no eixo y
 
-    window.onkeydown = e => voando = true
-    window.onkeyup = e => voando = false
+    window.onkeydown = e => voando = true //quando clicar qualquer tecla, voando eh true
+    window.onkeyup = e => voando = false //quando clicar qualquer tecla, voando eh false
 
     this.animar = () => {
-        const novoY = this.getY() + (voando ? 8 : -5)
-        const alturaMaxima = alturaJogo - this.elemento.clientHeight
+        const novoY = this.getY() + (voando ? 8 : -5) //se tiver voando sobe 8, se cair desce 5
+        const alturaMaxima = alturaJogo - this.elemento.clientHeight //altura maxima que o passaro pode voar, altura do jogo menos a do passaro
 
-        if (novoY <= 0) {
-            this.setY(0)
+        if (novoY <= 0) { 
+            this.setY(0) //se o novoY esta descendo pra baixo do chao, eh sempre 0
         } else if (novoY >= alturaMaxima) {
-            this.setY(alturaMaxima)
+            this.setY(alturaMaxima) //se chegar no maximo, nao consegue ir mais
         } else {
-            this.setY(novoY)
+            this.setY(novoY) //caso nao viole nenhum extremo, desloca-se normalmente
         }
     }
 
-    this.setY(alturaJogo / 2)
+    this.setY(alturaJogo / 2) //define que o passaro inicia no meio do jogo
 }
 
 
 
 function Progresso() {
-    this.elemento = novoElemento('span', 'progresso')
-    this.atualizarPontos = pontos => {
+    this.elemento = novoElemento('span', 'progresso') //cria o span dos pontos
+    this.atualizarPontos = pontos => { //passa por parametro os pontos para atualizar os pontos
         this.elemento.innerHTML = pontos
     }
-    this.atualizarPontos(0)
+    this.atualizarPontos(0) //inicialmente eh 0
 }
 
 // const barreiras = new Barreiras(700, 1200, 200, 400)
@@ -123,53 +123,54 @@ function Progresso() {
 // }, 20)
 
 function estaoSobrepostos(elementoA, elementoB) {
-    const a = elementoA.getBoundingClientRect()
-    const b = elementoB.getBoundingClientRect()
+    const a = elementoA.getBoundingClientRect() //retorna as dimensoes do quadrado
+    const b = elementoB.getBoundingClientRect() //retangulo associado ao elemento
 
-    const horizontal = a.left + a.width >= b.left
-        && b.left + b.width >= a.left
-    const vertical = a.top + a.height >= b.top
-        && b.top + b.height >= a.top
-    return horizontal && vertical
+    const horizontal = a.left + a.width >= b.left //checa se a distancia do lado esquerdo + a largura de um elemento eh maior que a distancia do lado esquerdo do outro elemento
+        && b.left + b.width >= a.left //faz o mesmo para os dois elementos
+    const vertical = a.top + a.height >= b.top //checa se a distancia de cima do elemento + sua altura eh maior que a distancia de cima do outro elemento
+        && b.top + b.height >= a.top //faz o mesmo para o outro elemento
+    return horizontal && vertical //retorna os valores, se algum for true, significa se houve colisao
 }
 
 function colidiu(passaro, barreiras) {
-    let colidiu = false
-    barreiras.pares.forEach(parDeBarreiras => {
+    let colidiu = false //inicialmente eh false pois nao tem colisao
+    barreiras.pares.forEach(parDeBarreiras => { //para cada barreira checa a colisao
         if (!colidiu) {
-            const superior = parDeBarreiras.superior.elemento
-            const inferior = parDeBarreiras.inferior.elemento
-            colidiu = estaoSobrepostos(passaro.elemento, superior)
-                || estaoSobrepostos(passaro.elemento, inferior)
+            const superior = parDeBarreiras.superior.elemento //seleciona a barreira de cima
+            const inferior = parDeBarreiras.inferior.elemento //seleciona a barreira de baixo
+            colidiu = estaoSobrepostos(passaro.elemento, superior) //checa se o passaro toca o elemento de cima
+                || estaoSobrepostos(passaro.elemento, inferior) //ou se toca o elemento de baixo
         }
     })
-    return colidiu
+    return colidiu //retorna o colidiu
+
 }
 
 function FlappyBird() {
-    let pontos = 0
+    let pontos = 0 //pontos iniciais
 
-    const areaDoJogo = document.querySelector('[wm-flappy]')
-    const altura = areaDoJogo.clientHeight
-    const largura = areaDoJogo.clientWidth
+    const areaDoJogo = document.querySelector('[wm-flappy]') //seleciona a area do jogo
+    const altura = areaDoJogo.clientHeight //pega a altura do jogo
+    const largura = areaDoJogo.clientWidth //pega a largura do jogo
 
-    const progresso = new Progresso()
-    const barreiras = new Barreiras(altura, largura, 200, 400,
-        () => progresso.atualizarPontos(++pontos))
-    const passaro = new Passaro(altura)
+    const progresso = new Progresso() //cria um progresso (pontos)
+    const barreiras = new Barreiras(altura, largura, 200, 400, //abertura de 200, e o espaco entre de 400
+        () => progresso.atualizarPontos(++pontos)) //funcao callback para incrementar a variavel dos pontos
+    const passaro = new Passaro(altura) //cria o passaro
 
-    areaDoJogo.appendChild(progresso.elemento)
-    areaDoJogo.appendChild(passaro.elemento)
-    barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
+    areaDoJogo.appendChild(progresso.elemento) //adiciona os pontos
+    areaDoJogo.appendChild(passaro.elemento) //adiciona os passaros
+    barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento)) //adiciona os pares de barreiras
 
-    this.start = () => {
+    this.start = () => { //inicia o jogo
         // loop do jogo
         const temporizador = setInterval(() => {
-            barreiras.animar()
-            passaro.animar()
+            barreiras.animar() //anima as barreiras
+            passaro.animar() //anima o passaro
 
-            if (colidiu(passaro, barreiras)) {
-                clearInterval(temporizador)
+            if (colidiu(passaro, barreiras)) { //se houver colisao ele da clearInterval e para o temporizador
+                clearInterval(temporizador) //para o jogo
             }
         }, 20)
     }
