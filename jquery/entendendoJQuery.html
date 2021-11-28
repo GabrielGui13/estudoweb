@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Entendendo jQuery</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Entendendo jQuery</h1>
+    <div>1</div>
+    <div>2</div>
+
+    <script>
+        $('div') //$ ou jQuery (!= jquery)
+					.hide(5000) //some os dois da tela diminuindo apos 5s
+					.show(5000) //mostra os dois apos 5s
+					.fadeOut(5000) //tira a opacidade apos 5s
+
+				console.log($('div').get(0)) // colocar .show não funcionaria na div literal, elemento de indice 0 da lista de 'div, apenas o seletor retorna um objeto jquery
+
+				console.log($.isEmptyObject({})) //true, pois ta vazio
+				console.log($.isEmptyObject({nome: null})) //false, nao ta vazio
+				console.log($.inArray(4, [1, 2, 3])) //retorna -1, se não tiver, e o indice que ele está se tiver
+
+				$('div').first().show(1000) //seleciona o primeiro
+				$('div').eq(1).show(2000) //o segundo
+
+				$.fn.fundoVerde = function() {
+					this.css('background-color', 'green')
+					return this //apto para encadeamento
+				}
+
+				$('body').fundoVerde().fadeOut(20000)
+    </script>
+</body>

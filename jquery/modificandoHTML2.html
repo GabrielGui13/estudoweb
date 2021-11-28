@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #02</h1>
+    <div id='div1'>1</div>
+    <div id='div2'>2</div>
+    <div id='div3'>3</div>
+    <p class='numero'>4</p>
+    <p class='numero'>5</p>
+
+    <script>
+        $('#div1').append(', 2')
+        $('#div1').prepend('0, ')
+
+				$('<span>, 3 </span>').appendTo('#div1')
+				$('<span>-1, </span>').prependTo('#div1')
+
+				$('#div2').before('<p>Antes 2</p>') //insere antes do elemento fora dele
+				$('#div2').after('<p>Depois 2</p>') //insere depois do elemento fora dele
+
+				$('<p>Antes 3</p>').insertBefore('#div3')
+				$('<p>Depois 3</p>').insertAfter('#div3')
+
+				//$('p.numero').wrap('<div>') //envolve cada elemento selecionado em uma div
+				$('p.numero').wrapAll('<div id="div4">') //envolve todos os elementos selecionados dentro de uma única div com id = div4
+
+				$('#div4').empty() //tira tudo de dentro do elemento selecionado
+
+				$('#div3, #div4').prev().remove() //seleciona as duas divs, pega o anterior de cada e remove (antes 3 e antes 4)
+
+				//sempre que define as tags esta criando um elemento
+				//$('<div>Substituto</div>').replaceAll('body > p') //substitui todos os paragrafos diretamente dentro do body
+
+				$('body > p').replaceWith('<div>Substituto</div>') //igual o de cima, mesmo resultado
+
+				$('body > p').replaceWith(() => { //nao encontra pois foi replaced pelo de cima
+					return $('<div>').html($(this).html()).append('!!!')
+				})
+    </script>
+</body>
