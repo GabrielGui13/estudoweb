@@ -27,3 +27,24 @@ Os valores vão de 1 a 5, sendo 0 o default, valores diferentes não são aplica
 * "breadcrumb" => inicia um bloco de breadcrumb, geralmente em uma lista
 * "breadcrumb-item" => marca cada caminho do breadcrumb, geralmente é um li com um a com o href dentro
 * "active" => item do breadcrumb que você se encontra
+
+
+## Cores
+Prefixos:
+* "text-" => textos
+* "bg-" => plano de fundo, background
+* "alert-" => div de mensagem, ou alerta para o usuário
+* "btn-" => botão com intenções diferentes
+
+Valores:
+* "primary" => cor primária do tema
+* "secondary" => cor secundária do tema
+* "success" => cor de sucesso do tema, geralmente verde
+* "danger" => cor de perigo, erro do tema, geralmente vermelho
+* "warning" => cor de alerta, aviso, cuidado, geralmente amarelo
+* "info" => cor de informação, mensagem, geralmente verde azulado claro
+* "light" => cor branca creme ou cinza claro
+* "dark" => cor cinza escuro quase preto
+* "white" => cor majoritariamente branca
+* "muted" => cor apagada, parecido com o disabled
+* "transparent" => sem cor, não disponível a todos os prefixos
