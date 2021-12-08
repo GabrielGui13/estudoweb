@@ -118,6 +118,7 @@ _Os valores vão de 1 a 5, sendo 0 o default, valores diferentes não são aplic
 
 
 ## Float
+
 _Tambem conta com as variações 
 responsivas sm, md, lg, xl e xxl_
 * **"float-left"** => flutua a esquerda
@@ -126,3 +127,19 @@ responsivas sm, md, lg, xl e xxl_
 
 
 ## Grid
+
+_As colunas estao sempre divididas em 12 colunas, pois pode fazer as divisoes por 1, 2, 3, 4, 6, 12. Por padrao, a classe col sozinha funciona apenas em dispositivos muito pequenos, ou extra small (xm). Tambem conta com as variações 
+responsivas sm, md, lg, xl e xxl_
+
+Grid Basico:
+* **"container-fluid"** => inicia o grid, apenas container seria um tamanho fixo, fluid se adapta ao tamanho da tela
+* **"row"** => inicia uma linha
+* **"col"** / **"col-1"** -- **"col-12"** => inicia uma coluna, se apenas colocar col, ele divide os espacos dos elementos de forma igualitaria, ao selecionar os numeros, ele utiliza x espacos do grid
+* **"col-4" + "col-5" + "col"** => o primeiro elemento ocupa 4 'fatias' das 12 colunas, o segundo ocupa 5, e o ultimo ocupa o restante, que seriam 3 colunas
+
+Grid Responsivo:
+* **"col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1"** => nesse exemplo, por padrao (extra small devices), cada celula vai ocupar a linha inteira, pois vai ocupar 12 fatias, quando a tela for pequena, cada celula ocupara 6 parcelas, o que nao significa que todas serao na mesma linha, ja que as celulas estao uma atras da outra, quando preencher o espaco quebra a linha, em telas medias, ocupara 4 fatias cada, em telas largas, 2 fatias, e finalmente em uma tela longa, cada celula ocupara 1 parcela das 12 totais
+* **"w-100"** => ao inserir uma div 'fantasma' com w-100 (width: 100%;), ela auto completa o restante da linha do grid sem nada visivel e a proxima celula cai embaixo
+* **"col-3 + col-3 + col-7"** => outra forma que ocorreria um quebra de linha seria em uma situacao que ja tem duas celulas ocupando 6 fatias (3 de cada), e é colocada uma celula ocupando 7 fatias, ao calcular daria 13, e iria passar das 12 colunas padrao, o que faria o elemento que ocupa 7 fatias pulasse pra baixo
+* **"order-5 + order-12 + order-1"** => assim como no flexbox, o grid tambem tem o sistema de order (1 a 12), nesse exemplo eh considerado a ordem dos numeros, o elemento com menor numero fica a frente sempre, o order-1 ficaria antes de todos, depois o order-5, e depois o order-12, no entanto caso houvesse um quarto elemento sem a classe order, ele ficaria a frente de todos, inclusive do order 1
+* **"align-self-{start/center/end}"** => por baixo dos panos o grid do bootstrap funciona como um display flex, dessa forma as propriedades self se aplicam tambem
