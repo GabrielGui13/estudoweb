@@ -143,3 +143,43 @@ Grid Responsivo:
 * **"col-3 + col-3 + col-7"** => outra forma que ocorreria um quebra de linha seria em uma situacao que ja tem duas celulas ocupando 6 fatias (3 de cada), e é colocada uma celula ocupando 7 fatias, ao calcular daria 13, e iria passar das 12 colunas padrao, o que faria o elemento que ocupa 7 fatias pulasse pra baixo
 * **"order-5 + order-12 + order-1"** => assim como no flexbox, o grid tambem tem o sistema de order (1 a 12), nesse exemplo eh considerado a ordem dos numeros, o elemento com menor numero fica a frente sempre, o order-1 ficaria antes de todos, depois o order-5, e depois o order-12, no entanto caso houvesse um quarto elemento sem a classe order, ele ficaria a frente de todos, inclusive do order 1
 * **"align-self-{start/center/end}"** => por baixo dos panos o grid do bootstrap funciona como um display flex, dessa forma as propriedades self se aplicam tambem
+
+
+
+## Botões
+_Tambem conta com as variações 
+responsivas sm, md, lg, xl e xxl. Alem de tambem possuir as variacoes de cores (primary, secondary, success, etc)_
+
+* "btn" => para definir o button como um botão do bootstrap, uma tag "a" com o atributo role="button", ou uma tag label, para criar alguns grupos
+* "btn-*" => para colocar uma cor específica padrão no botão 
+* "btn-outline-*" => para que o botão tenha apenas a borda e fique da forma normal no hover do mouse
+* "btn-lg" / "btn-sm" => tamanho do botão maior (lg) ou menor (sm)
+* "active" => o botão vai ter a aparência de como se tivesse pressionado
+* "disabled" / [disabled] => utilizado apenas se for uma tag a, serve para dar a aparência de desabilitado, nas tags buttons apenas o atributo disabled já aplica a estilização
+* [data-toggle="button"] => atributo utilizado para que o botão mude para ativo ou não a cada clique, efeito de interruptor
+
+#### Grupo de botões
+* "btn-group" => colocada em uma div que vai envolver labels com tags btn do bootstrap, vai fazer com que os botões (button, a, label) fiquem "colados" um no outro
+* "btn-group btn-group-toggle" + [data-toggle="buttons"] => btn-group para juntar os botões, btn-group-toggle para manipular o comportamento por javascript, e [data-toggle="buttons"] vai servir para conseguir gerenciar labels que tenham inputs (radio ou checkbox) dentro deles, para que tenham a estilização do botão, mas o comportamento de radio ou checkbox.
+
+#### Dropdown
+* "dropdown" => colocada em uma div que envolve outros elementos para habilitar o dropdown
+* "dropdown-toggle" + [data-toggle="dropdown"] => colocados em um botão dentro da div para servir como o trigger do dropdown
+* "dropdown-menu" => a div que vai ter os itens do dropdown, ela que vai aparecer e desaparecer no trigger do dropdown
+* "dropdown-item" => classe dada aos itens (geralmente "a") que ficam dentro da div do dropdown-menu para ser os itens que vão aparecer no trigger do dropdown
+
+
+## Barra de progresso
+_Tambem conta com as variações de cores com bg-*(primary, secondary, success, etc)_
+* "progress" => div que envolve a progress bar, eh o background, o 100% em cinza
+* "progress-bar" => dentro da div progress, eh o que define o tamanho da progress bar com o atributo [width="x%"], pode ter multiplas progress bar dentro de uma div progress
+* "progress-bar-striped" => o mesmo da progress bar mas eh listrada
+* "progress-bar-animated" => o mesmo da progress bar listrada mas se move da direita para a esquerda
+
+
+## Alertas
+_Tambem conta com as variações de cores com alert-*(primary, secondary, success, etc)_
+* "alert" => para configurar a div como um alert, porem necessita de uma cor (ex: "alert-success")
+* "alert-link" => colocado dentro de um alert, classe de uma tag "a" geralmente, para estilizar um link
+"alert-heading" => colocado em um uma tag h1, h2, h3, etc dentro de um alert, para deixar o alerta mais complexo
+"alert-dismissible" => serve para configurar o alert de forma que ele pode ser fechado, no entando para funcionar necessita de um button dentro dele com o atributo [data-dismiss="alert"], e de preferencia com a classe "close" para estilizar da maneira correta. Na div do alert as classes "fade" e "show" vao servir para aplicar animacao nas acoes
