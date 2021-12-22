@@ -150,36 +150,81 @@ Grid Responsivo:
 _Tambem conta com as variações 
 responsivas sm, md, lg, xl e xxl. Alem de tambem possuir as variacoes de cores (primary, secondary, success, etc)_
 
-* "btn" => para definir o button como um botão do bootstrap, uma tag "a" com o atributo role="button", ou uma tag label, para criar alguns grupos
-* "btn-*" => para colocar uma cor específica padrão no botão 
-* "btn-outline-*" => para que o botão tenha apenas a borda e fique da forma normal no hover do mouse
-* "btn-lg" / "btn-sm" => tamanho do botão maior (lg) ou menor (sm)
-* "active" => o botão vai ter a aparência de como se tivesse pressionado
-* "disabled" / [disabled] => utilizado apenas se for uma tag a, serve para dar a aparência de desabilitado, nas tags buttons apenas o atributo disabled já aplica a estilização
-* [data-toggle="button"] => atributo utilizado para que o botão mude para ativo ou não a cada clique, efeito de interruptor
+* **"btn"** => para definir o button como um botão do bootstrap, uma tag "a" com o atributo role="button", ou uma tag label, para criar alguns grupos
+* **"btn-*"** => para colocar uma cor específica padrão no botão 
+* **"btn-outline-*"** => para que o botão tenha apenas a borda e fique da forma normal no hover do mouse
+* **"btn-lg"** / "btn-sm" => tamanho do botão maior (lg) ou menor (sm)
+* **"active"** => o botão vai ter a aparência de como se tivesse pressionado
+* **"disabled"** / [disabled] => utilizado apenas se for uma tag a, serve para dar a aparência de desabilitado, nas tags buttons apenas o atributo disabled já aplica a estilização
+* **[data-toggle="button"]** => atributo utilizado para que o botão mude para ativo ou não a cada clique, efeito de interruptor
 
 #### Grupo de botões
-* "btn-group" => colocada em uma div que vai envolver labels com tags btn do bootstrap, vai fazer com que os botões (button, a, label) fiquem "colados" um no outro
-* "btn-group btn-group-toggle" + [data-toggle="buttons"] => btn-group para juntar os botões, btn-group-toggle para manipular o comportamento por javascript, e [data-toggle="buttons"] vai servir para conseguir gerenciar labels que tenham inputs (radio ou checkbox) dentro deles, para que tenham a estilização do botão, mas o comportamento de radio ou checkbox.
+* **"btn-group"** => colocada em uma div que vai envolver labels com tags btn do bootstrap, vai fazer com que os botões (button, a, label) fiquem "colados" um no outro
+* **"btn-group btn-group-toggle" + [data-toggle="buttons"]** => btn-group para juntar os botões, btn-group-toggle para manipular o comportamento por javascript, e [data-toggle="buttons"] vai servir para conseguir gerenciar labels que tenham inputs (radio ou checkbox) dentro deles, para que tenham a estilização do botão, mas o comportamento de radio ou checkbox.
 
 #### Dropdown
-* "dropdown" => colocada em uma div que envolve outros elementos para habilitar o dropdown
-* "dropdown-toggle" + [data-toggle="dropdown"] => colocados em um botão dentro da div para servir como o trigger do dropdown
-* "dropdown-menu" => a div que vai ter os itens do dropdown, ela que vai aparecer e desaparecer no trigger do dropdown
-* "dropdown-item" => classe dada aos itens (geralmente "a") que ficam dentro da div do dropdown-menu para ser os itens que vão aparecer no trigger do dropdown
+* **"dropdown"** => colocada em uma div que envolve outros elementos para habilitar o dropdown
+* **"dropdown-toggle"** + [data-toggle="dropdown"] => colocados em um botão dentro da div para servir como o trigger do dropdown
+* **"dropdown-menu"** => a div que vai ter os itens do dropdown, ela que vai aparecer e desaparecer no trigger do dropdown
+* **"dropdown-item"** => classe dada aos itens (geralmente "a") que ficam dentro da div do dropdown-menu para ser os itens que vão aparecer no trigger do dropdown
 
 
 ## Barra de progresso
 _Tambem conta com as variações de cores com bg-*(primary, secondary, success, etc)_
-* "progress" => div que envolve a progress bar, eh o background, o 100% em cinza
-* "progress-bar" => dentro da div progress, eh o que define o tamanho da progress bar com o atributo [width="x%"], pode ter multiplas progress bar dentro de uma div progress
-* "progress-bar-striped" => o mesmo da progress bar mas eh listrada
-* "progress-bar-animated" => o mesmo da progress bar listrada mas se move da direita para a esquerda
+* **"progress"** => div que envolve a progress bar, eh o background, o 100% em cinza
+* **"progress-bar"** => dentro da div progress, eh o que define o tamanho da progress bar com o atributo [width="x%"], pode ter multiplas progress bar dentro de uma div progress
+* **"progress-bar-striped"** => o mesmo da progress bar mas eh listrada
+* **"progress-bar-animated"** => o mesmo da progress bar listrada mas se move da direita para a esquerda
 
 
 ## Alertas
 _Tambem conta com as variações de cores com alert-*(primary, secondary, success, etc)_
-* "alert" => para configurar a div como um alert, porem necessita de uma cor (ex: "alert-success")
-* "alert-link" => colocado dentro de um alert, classe de uma tag "a" geralmente, para estilizar um link
-"alert-heading" => colocado em um uma tag h1, h2, h3, etc dentro de um alert, para deixar o alerta mais complexo
-"alert-dismissible" => serve para configurar o alert de forma que ele pode ser fechado, no entando para funcionar necessita de um button dentro dele com o atributo [data-dismiss="alert"], e de preferencia com a classe "close" para estilizar da maneira correta. Na div do alert as classes "fade" e "show" vao servir para aplicar animacao nas acoes
+* **"alert"** => para configurar a div como um alert, porem necessita de uma cor (ex: "alert-success")
+* **"alert-link"** => colocado dentro de um alert, classe de uma tag "a" geralmente, para estilizar um link
+* **"alert-heading"** => colocado em um uma tag h1, h2, h3, etc dentro de um alert, para deixar o alerta mais complexo
+* **"alert-dismissible"** => serve para configurar o alert de forma que ele pode ser fechado, no entando para funcionar necessita de um button dentro dele com o atributo * [data-dismiss="alert"], e de preferencia com a classe "close" para estilizar da maneira correta. Na div do alert as classes "fade" e "show" vao servir para aplicar animacao nas acoes
+
+
+## Paginação
+
+* **"pagination"** => inicia um bloco de paginação ul
+* **"page-item"** => geralmente usado na li para indicar um item da paginacao (anterior, 1, 2, 3, proximo)
+* **"page-link"** => geralmente usado na tag a dentro de uma li para indicar a rota da paginacao
+* **"pagination-sm" / "pagination-lg"** => usados na ul para definir o tamanho do bloco de paginacao
+* **"active" / "disabled"** => usados na li para indicar qual a pagina ativa ou impossibilitar a escolha de alguma pagina
+
+
+## Tooltip
+Importante lembrar que os tooltips so sao ativados mediante ativacao via jquery(v4) e javascript(v5)
+
+* **[data-bs-toggle="tooltip"]** => para definir que um botao especifico tenha tooltip (para funcionar na v4 precisa retirar o -bs-)
+* **[data-bs-placement="top"/"left"/"bottom"/"right"]** => para definir para qual direcao o tooltip abre (para funcionar na v4 precisa retirar o -bs-)
+* **[title="x"]** => atributo para definir o conteudo do tooltip
+
+
+## Slider
+
+* **"carousel"** => usado em uma div maior para ativar o carousel, acompanhado sempre de uma id unica para configurar os controladores, e a classe slide para animar a mudanca de imagens
+* **[data-bs-ride="carousel"]** => tambem usado na div carousel para definir a funcao da div (para funcionar na v4 precisa retirar o -bs-)
+* **"carousel-inner"** => div interna onde cada imagem/slide vai ser inserido
+* **"carousel-item"** => atribuido a cada div que represente uma imagem/slide, dentro deles geralmente tem uma tag img com d-block e as margens, tamanhos, etc. O active define qual ta ativa no momento
+* **"carousel-control-prev" / "carousel-control-next"** => classes colocadas em um button(v5) ou um a(v4) para definir o proximo slide e o anterior, dentro deles ha um span com a classe "carousel-control-prev-icon" ou "carousel-control-next-icon" para pegar os icones das setas, sao acompanhados de [data-bs-slide="prev"/"next"] (para funcionar na v4 precisa retirar o -bs-), o [role/type="button"](v4/v5), e um [href/data-bs-target="#id-do-carousel"](v4/v5)
+* **"carousel-indicators"** => utilizado para colocar os botoes de baixo para acessar cada imagem, usa-se um "ol"(v4) ou uma "div"(v5)
+* **[data-bs-target="#id-do-carousel"]** => utilizado dentro de uma li (v4) ou um button (v5) para cada item de dentro da div carousel-indicators, faz a conexao com o carousel (para funcionar na v4 precisa retirar o -bs-)
+* **[data-bs-slide-to="0"]** => representa qual o item que cada botaozinho tera relacao para com as imagens, cada um deve ter um valor diferente, organizado de forma crescente comecando pelo 0, a quantidade de imagens dira a quantidade de elementos dos botoes (para funcionar na v4 precisa retirar o -bs-)
+* **"carousel-caption"** => utilizado para colocar uma legenda para cada slide, eh inserido dentro da div de "carousel-item" geralmente com as classes "d-none d-md-block" para ser fiel a responsividade
+
+
+## Accordion
+
+No exemplo do projeto, foi criado uma div maior com a classe "card", e tinham varias divs dentro com a classe "card-header" para mostrar uma pergunta por fora, cada card-header tinha dentro dele um h5 com um botao e um texto que serviam como trigger para mostrar o elemento abaixo deles, que era o "card-body" em uma div escondida com a classe collapse envolvendo ela, e o trigger para mostrar ou nao era os anteriores.
+* **[data-bs-toggle="collapse"]** => usado para definir uma tag a, ou um botao com btn-link, para ser o trigger do elemento com a classe collapse (para funcionar na v4 precisa retirar o -bs-)
+* **[href/data-bs-target="#id-do-elemento-com-collapse"]** => serve para realacionar o trigger com o elemento que vai ser chamado, pode ser utilizado um a ou um button (para funcionar na v4 precisa retirar o -bs-)
+* **"collapse"** => classe utilizada para definir uma div em que seu conteudo sera colapsado, esta div tambem acompanha uma id unica, onde ela eh chamada no href ou data-bs-target, para relacionar quais elementos vao colapsar ou nao
+* **[data-bs-parent="#id-do-parent-do-collapse"]** => caso os elementos do collapse e suas referencias estejam dentro de uma unica div parente, o data-bs-parent pode ser utilizado para fazer a referencia, eh utilizado na mesma div da classe "collapse" (para funcionar na v4 precisa retirar o -bs-)
+
+
+## Formulario
+
+* **""** => 
+ 
