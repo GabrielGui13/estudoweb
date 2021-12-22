@@ -11,8 +11,11 @@
         fetch(url)
             .then(resp => resp.text())
             .then((html) => {
-                destino.innerHTML = html;
-                eval(html.match(/\<script\>([\s\S]*)\<\/script\>/)[1]); //pega todo o texto disponível envolvido por <script> dentro da tag html, ".*" nao pegaria tudo, mas "[\s\S]" pega
+              destino.innerHTML = html;
+              const resultado = html.match(/\<script\>([\s\S]*)\<\/script\>/);
+              if (resultado && resultado.length >= 2) {
+                eval(resultado[1]);
+              } //pega todo o texto disponível envolvido por <script> dentro da tag html
             })
     }
 

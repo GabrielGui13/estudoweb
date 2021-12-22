@@ -224,7 +224,29 @@ No exemplo do projeto, foi criado uma div maior com a classe "card", e tinham va
 * **[data-bs-parent="#id-do-parent-do-collapse"]** => caso os elementos do collapse e suas referencias estejam dentro de uma unica div parente, o data-bs-parent pode ser utilizado para fazer a referencia, eh utilizado na mesma div da classe "collapse" (para funcionar na v4 precisa retirar o -bs-)
 
 
-## Formulario
+## Formulário
 
-* **""** => 
+* **"container-fluid"** => não é necessariamente uma classe dos formulários, mas é importante colocá-la na tag "form" para que o formulário ocupe sempre 100% da largura da tela
+* **"form-inline"** => utilizado na tag "form" para definir um pequeno formulário que fique na mesma linha 
+* **"form-row"** => utilizado para envolver um conjunto de labels, inputs, divs, etc. Funciona como um "row" mas por estar dentro de um form, é utilizado "form-row" semanticamente, dentro dele geralmente é criada uma outra div para envolver tudo e delimitar os tamanhos com "col-12" ou etc.
+* **"form-group"** => div que envolve as labels e inputs em primeiro lugar, dentro dele que é gerado os grupos de inputs, o conjunto de label e input com textos adicionais, ou label com select e option, ou checkboxes, é utilizado geralmente depois da div "col-12" que é envolvida pela "form-row" 
+* **"form-control"** => classe de estilização padrão utilizada nos inputs, select, etc. Pode ser acompanhado de "-lg" e "sm" para que seu tamanho seja maior ou menor
+* **"input-group"** => usado semanticamente em uma div para envolver algumas particularidades nos inputs, como um quadrado com o ícone "@" logo antes do input para representar um input de email
+* **"input-group-prepend"** => div que vai inserir um pequeno espaço antes da div para colocar algum caractere ou ícone geralmente
+* **"input-group-text"** => usado dentro da div "input-group-prepend" para definir o conteúdo deste pequeno bloco de informação antes do input
+* **"form-text"** => pequeno texto geralmente colocado abaixo dos inputs em uma tag "small", para representar pequenas informações ou mensagens de erro, acompanhado geralmente de um "text-muted" para definir sua cor
+* **"form-check"** => utilizado no lugar de "form-group" quando se trata de blocos do formulário que contém radio e checkbox para fazer a estilização da sequência dos inputs
+* **"form-check-input"** => utilizado nos inputs radio e checkbox para aplicar a estilização padrão
+* **"form-check-label"** => utilizado nas labels após os inputs, para descrever o que cada marcação do radio ou checkbox representa
+* **"disabled"** => usado para aplicar a estilização de um input desabilitado, deve ser utilizado na div geral ("form-group" ou "form-check") para aplicar essa aparência, obviamente para funcionar o input deve ter também o atributo [disabled], para que não funcione, e a classe "disabled" para que tenha a aparência que não funciona
+* **"form-control-plaintext"** => utilizado em um input que possua o atributo [readonly], vai servir para tirar a estilização de bloco de input padrão 
+
+#### Validação
+
+* **[novalidate]** => atributo nativo que desabilita as mensagens tooltip padrão do browser, como o "Preencha este campo" para um input required
+* **"was-validated"** => classe aplicada no form que vai aplicar as estilizações em cada input se ele estiver válido ou não, sublinhado e cores vermelhas quando um input required estiver vazio por exemplo, e tudo ver de quando digitar algo e ele estiver válido
+* **checkValidity()** => função da própria API do javascript que faz a validação dos campos do formulário, pode ser utilizado para enviar ou não um formulário, ou fazer coisas específicas para cada input, por trás dos panos, a classe "was-validated" utiliza essa função para validar os campos e colocar as respectivas cores
+* **"valid-feedback" / "valid-tooltip"** => classe utilizada em um elemento logo após um input para mostrar uma mensagem de aprovação caso o campo esteja válido, caso esteja inválido ele não é mostrado, o feedback é um texto simples verde e o tooltip é um pequeno bloco de cor verde e texto branco, ele só funciona com a presença da classe "was-validated" no form
+* **"invalid-feedback" / "invalid-tooltip"** => classe utilizada em um elemento logo após um input para mostrar uma mensagem de reprovação caso o campo esteja inválido, caso esteja válido ele não é mostrado, o feedback é um texto simples vermelho e o tooltip é um pequeno bloco de cor vermelha e texto branco, ele só funciona com a presença da classe "was-validated" no form
+
  
